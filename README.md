@@ -12,5 +12,5 @@
   - [x] 解题思路
 - [x] [414. 第三大的数](https://leetcode-cn.com/problems/third-maximum-number/) 需要优化，如果求解第 n 大的数字，这个方法行不通
   - [x] 解题思路
-- [ ] [645. 错误的集合](https://leetcode-cn.com/problems/set-mismatch/)
+- [x] [645. 错误的集合](https://leetcode-cn.com/problems/set-mismatch/)
   - [x] 解题思路
