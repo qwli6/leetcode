@@ -23,41 +23,31 @@ import java.util.*;
  */
 public class Solution {
     public int[] findErrorNums(int[] nums) {
-        if(nums == null || nums.length < 2 || nums.length > 10000){
-            return null;
+        int[] result = new int[2];
+        int[] temp = new int[nums.length+1];
+        for(int num : nums) {
+            temp[num] ++;
         }
-        int[] errorNums = new int[2];
-        int oneIndex;
-        int twoIndex = 0;
-        Set<Integer> errorSets = new LinkedHashSet<>();
-        for(int i = 0; i < nums.length; i++){
-            if(errorSets.contains(nums[i])){
-                twoIndex = i;
-                break;
+
+        for(int i = 1; i < temp.length; i++){
+            if(temp[i] == 1) {
+                continue;
+            }
+            if(temp[i] == 2) {
+                result[0] = i;
             } else {
-                errorSets.add(nums[i]);
+                result[1] = i;
             }
         }
-
-        Iterator<Integer> iterator = errorSets.iterator();
-        while (iterator.hasNext()){
-            Integer next = iterator.next();
-            if(next == nums[twoIndex]){
-                if(next==2){
-
-                }
-            }
-        }
-
-
-        return errorNums;
+        return result;
 
     }
 
 
     public static void main(String[] args){
 
-        int[] nums = {1,2,3,4,5,6,6,8};
+//        int[] nums = {1,2,3,4,5,6,6,8};
+        int[] nums = {3,3,4,6,5,2};
 
         Solution solution = new Solution();
         int[] errorNums = solution.findErrorNums(nums);
