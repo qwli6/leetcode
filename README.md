@@ -14,3 +14,5 @@
   - [x] 解题思路
 - [x] [645. 错误的集合](https://leetcode-cn.com/problems/set-mismatch/)
   - [x] 解题思路
+- [x] [35. 搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)  
+  - [x] 解题思路
