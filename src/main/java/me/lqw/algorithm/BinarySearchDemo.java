@@ -13,7 +13,7 @@ package me.lqw.algorithm;
 public class BinarySearchDemo {
 
 
-    private static int[] target = new int[]{-1};
+    private static int[] target = new int[]{1, 2};
 
     private static int startIndex;
     private static int endIndex;
@@ -21,8 +21,10 @@ public class BinarySearchDemo {
 
     public static void main(String[] args){
 
-        int index = middleSearch(target, 9);
-        System.out.println();
+//        int index = middleSearch(target, 9);
+//        System.out.println();
+
+        System.out.println(middleSearchByRecursion(target, -1, 0,target.length));
 
     }
 
@@ -48,6 +50,31 @@ public class BinarySearchDemo {
             System.out.println("中间索引位：" + middleIndex + "||  开始索引位：" + startIndex + "   ||   结束索引位：" + endIndex);
         } while (startIndex <= endIndex); //直到 startIndex > endIndex 为止
         return -1;
+    }
+
+    /**
+     * 递归的方式实现二分查找
+     * @param nums nums
+     * @param value value
+     * @param beginIndex beginIndex
+     * @param endIndex endIndex
+     * @return int
+     */
+    public static int middleSearchByRecursion(int[] nums, int value, int beginIndex, int endIndex){
+        //开始索引位大于结束索引位时就要跳出循环了
+        if(beginIndex > endIndex){
+            return -1;
+        }
+
+        int middleIndex = (beginIndex + endIndex)/2;
+        if(nums[middleIndex] == value){
+            return middleIndex;
+        } else if(nums[middleIndex] > value){
+            endIndex = middleIndex - 1;
+        } else if(nums[middleIndex] < value){
+            beginIndex = middleIndex + 1;
+        }
+        return middleSearchByRecursion(nums, value, beginIndex, endIndex);
     }
 
 }
